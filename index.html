@@ -10,28 +10,113 @@
 			href="images/favicon-32x32.png"
 			type="image/x-icon"
 		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="styles.css" />
 		<script type="module">
 			import { createApp } from "https://unpkg.com/petite-vue?module";
 
-			createApp({
-				// exposed to all expressions
-				count: 0,
-				// getters
-				get plusOne() {
-					return this.count + 1;
-				},
-				// methods
-				increment() {
-					this.count++;
-				},
-			}).mount();
+			createApp({}).mount();
 		</script>
 	</head>
 	<body>
-		<div>
-			{{ count }}
-			<button @click="increment">inc</button>
-		</div>
+		<main>
+			<section class="side-img">
+				<img
+					class="box desktop"
+					src="images/illustration-box-desktop.svg"
+					alt="@ Box Svg"
+				/>
+				<img
+					class="desktop"
+					src="images/illustration-woman-online-desktop.svg"
+					alt="Woman staring at a computer svg"
+				/>
+				<img
+					class="mobile"
+					src="images/illustration-woman-online-mobile.svg"
+					alt="Woman at Computer Mobile"
+				/>
+			</section>
+			<section class="faq">
+				<h2>FAQ</h2>
+				<ul>
+					<li v-scope="{ showDrop: false }">
+						<button class="drop-btn" @click="showDrop = !showDrop">
+							<h3>How many team members can I invite?</h3>
+							<img
+								:class="{ flip: showDrop }"
+								src="images/icon-arrow-down.svg"
+								alt="Dropdown Button Svg"
+							/>
+						</button>
+						<div class="drop-txt" v-show="showDrop">
+							You can invite up to 2 additional users on the Free plan. There is
+							no limit on team members for the Premium plan.
+						</div>
+					</li>
+					<li v-scope="{ showDrop: false }">
+						<button class="drop-btn" @click="showDrop = !showDrop">
+							<h3>What is the maximum file upload size?</h3>
+							<img
+								:class="{ flip: showDrop }"
+								src="images/icon-arrow-down.svg"
+								alt="Dropdown Button Svg"
+							/>
+						</button>
+						<div class="drop-txt" v-show="showDrop">
+							No more than 2GB. All files in your account must fit your allotted
+							storage space.
+						</div>
+					</li>
+					<li v-scope="{ showDrop: false }">
+						<button class="drop-btn" @click="showDrop = !showDrop">
+							<h3>How do I reset my password?</h3>
+							<img
+								:class="{ flip: showDrop }"
+								src="images/icon-arrow-down.svg"
+								alt="Dropdown Button Svg"
+							/>
+						</button>
+						<div class="drop-txt" v-show="showDrop">
+							Click “Forgot password” from the login page or “Change password”
+							from your profile page. A reset link will be emailed to you.
+						</div>
+					</li>
+					<li v-scope="{ showDrop: false }">
+						<button class="drop-btn" @click="showDrop = !showDrop">
+							<h3>Can I cancel my subscription?</h3>
+							<img
+								:class="{ flip: showDrop }"
+								src="images/icon-arrow-down.svg"
+								alt="Dropdown Button Svg"
+							/>
+						</button>
+						<div class="drop-txt" v-show="showDrop">
+							Yes! Send us a message and we’ll process your request no questions
+							asked.
+						</div>
+					</li>
+					<li v-scope="{ showDrop: false }">
+						<button class="drop-btn" @click="showDrop = !showDrop">
+							<h3>Do you provide additional support?</h3>
+							<img
+								:class="{ flip: showDrop }"
+								src="images/icon-arrow-down.svg"
+								alt="Dropdown Button Svg"
+							/>
+						</button>
+						<div class="drop-txt" v-show="showDrop">
+							Chat and email support is available 24/7. Phone lines are open
+							during normal business hours.
+						</div>
+					</li>
+				</ul>
+			</section>
+		</main>
 	</body>
 </html>

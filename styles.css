@@ -1,3 +1,13 @@
+:root {
+	--dark-desat-blue: hsl(238, 29%, 16%);
+	--soft-red: hsl(14, 88%, 65%);
+
+	--bg-grad: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+
+	font-size: 12px;
+	font-family: "Kumbh Sans", sans-serif;
+}
+
 /* css reset */
 *,
 *::before,
@@ -25,3 +35,142 @@ select {
 	font: inherit;
 }
 /* end css reset */
+
+body {
+	background-image: var(--bg-grad);
+	min-height: 100vh;
+	display: grid;
+	place-content: center;
+}
+
+main {
+	display: flex;
+	background-color: white;
+	padding: 3rem;
+	border-radius: 1rem;
+	align-items: center;
+	min-height: 500px;
+	background-image: url("images/bg-pattern-desktop.svg");
+	background-position: -10%;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	box-shadow: 0 5px 25px 10px rgba(0, 0, 0, 0.356);
+}
+
+.side-img {
+	position: relative;
+	left: -10%;
+}
+
+.side-img .box {
+	position: absolute;
+	top: 40%;
+	left: -5%;
+}
+
+.side-img .mobile {
+	display: none;
+}
+
+.faq {
+	margin-right: 4rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.faq h2 {
+	font-size: 2.5rem;
+}
+
+.faq ul {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	list-style: none;
+}
+
+.faq ul li {
+	position: relative;
+	display: flex;
+	padding-block: 0.5em;
+	flex-direction: column;
+	gap: 0.5em;
+	width: 350px;
+}
+
+.faq ul li::after {
+	content: "";
+	position: absolute;
+	background-color: lightgrey;
+	width: 100%;
+	height: 1.5px;
+	display: block;
+	bottom: -1rem;
+}
+
+.drop-btn {
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	align-items: center;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.drop-btn:hover h3 {
+	color: var(--soft-red);
+}
+
+.drop-btn h3 {
+	font-weight: 400;
+}
+
+.drop-btn:has(img.flip) h3 {
+	font-weight: 700;
+}
+
+.flip {
+	rotate: 180deg;
+}
+
+@media (max-width: 900px) {
+	main {
+		flex-direction: column;
+		margin-inline: 5%;
+		justify-content: center;
+		width: 90%;
+		min-height: none;
+		padding-top: 5rem;
+		position: relative;
+	}
+
+	.side-img {
+		top: -125px;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.side-img .desktop {
+		display: none;
+	}
+
+	.side-img .mobile {
+		display: block;
+		width: 250px;
+	}
+
+	.faq {
+		align-items: center;
+		width: 100%;
+		margin: 0;
+		padding: 5vw;
+	}
+}
